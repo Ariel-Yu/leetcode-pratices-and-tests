@@ -10,19 +10,24 @@ from pytest import fixture, mark
 class Solution:
     def next_permutation(self, nums: List[int]):
         for i in range(len(nums) - 1, 0, -1):
+            # Find the first descending number from the right
             if nums[i] > nums[i - 1]:
                 next_big = None
                 next_big_index = None
+                # Find the next number that is bigger than the first descending number
                 for j in range(i, len(nums)):
                     if next_big is None or nums[i - 1] < nums[j] < next_big:
                         next_big = nums[j]
                         next_big_index = j
+                # Swap the above 2 numbers found
                 tmp = nums[i - 1]
                 nums[i - 1] = nums[next_big_index]
                 nums[next_big_index] = tmp
+                # All the numbers after the first descending number should be sorted ASC
                 nums[i:] = sorted(nums[i:])
                 return
 
+        # If the list is sorted DESC, return the list sorted ASC
         nums.sort()
 
 
