@@ -5,14 +5,14 @@ from typing import List
 
 from pytest import fixture
 
-# Will the given list of ListNode be empty?
-# Will any ListNode be emtpy?
-# What is an empty ListNode? ListNode(0, None) or None
-# Can the val of ListNode be only integer or possibly also float and character?
-# Is there any time complexity and space complexity restriction?
+# 1. Will the given list of ListNode be empty?
+# 2. Will any ListNode be emtpy?
+# 3. What is an empty ListNode? ListNode(0, None) or None
+# 4. Can the val of ListNode be only integer or possibly also float and character?
+# 5. Is there any time complexity and space complexity restriction?
 
 
-class ListNode():
+class ListNode:
     def __init__(self, val: int = None, next = None):
         self.val = val
         self.next = next
@@ -107,7 +107,7 @@ class SolutionListSorting(Solution):
         return self.list_to_linked_list(merged_list)
 
 
-class TestSolutions():
+class TestSolutions:
     @fixture
     def solutions(self) -> List[Solution]:
         return [
