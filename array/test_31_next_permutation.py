@@ -44,3 +44,15 @@ class TestSolution:
         solution.next_permutation(nums)
 
         assert nums == expected
+
+
+def complexity_analysis():
+    print("=> Time complexity: O(n logn)")
+    print("* Find the first descending number from the right: O(n)")
+    print("* Sort the list from the next number of the first descending number until the end: O(n logn)")
+    print("=> Space complexity: O(1)")
+    print("* All the modification should be done in-place")
+
+
+if __name__ == "__main__":
+    complexity_analysis()
