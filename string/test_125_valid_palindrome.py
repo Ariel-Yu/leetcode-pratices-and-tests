@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
+from typing import List
+
+from pytest import fixture, mark
 
 # 1. The input string can contain all kinds of character?
 # 2. But only digit and alpha characters count?
 # 3. Will the input string contain empty space?
-from typing import List
-
-from pytest import fixture, mark
 
 
 class Solution(ABC):
