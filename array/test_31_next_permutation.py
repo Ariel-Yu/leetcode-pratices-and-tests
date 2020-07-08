@@ -45,7 +45,9 @@ class TestSolution:
     ]
 
     @mark.parametrize("nums, expected", _find_next_permutation_data_provider)
-    def test_find_next_permutation(self, nums: List[int], expected: List[int], solution):
+    def test_find_next_permutation(
+        self, nums: List[int], expected: List[int], solution
+    ):
         solution.next_permutation(nums)
 
         assert nums == expected
@@ -54,7 +56,9 @@ class TestSolution:
 def complexity_analysis():
     print("=> Time complexity: O(n logn)")
     print("* Find the first descending number from the right: O(n)")
-    print("* Sort the list from the next number of the first descending number until the end: O(n logn)")
+    print(
+        "* Sort the list from the next number of the first descending number until the end: O(n logn)"
+    )
     print("=> Space complexity: O(1)")
     print("* All the modification should be done in-place")
 
