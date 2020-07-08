@@ -34,26 +34,16 @@ class TestSolution:
         return Solution()
 
     data_provider = [
-        [
-            [[1,2], [3,8], [3,6], [6,10], [12, 15]],
-            [[1,2], [3,10], [12, 15]]
-        ],
-        [
-            [],
-            []
-        ],
-        [
-            [[5,10], [-3,-1], [8, 12], [1,1]],
-            [[-3,-1], [1,1], [5,12]]
-        ],
-        [
-            [[1,4], [4, 6], [6, 8]],
-            [[1,8]]
-        ]
+        [[[1, 2], [3, 8], [3, 6], [6, 10], [12, 15]], [[1, 2], [3, 10], [12, 15]]],
+        [[], []],
+        [[[5, 10], [-3, -1], [8, 12], [1, 1]], [[-3, -1], [1, 1], [5, 12]]],
+        [[[1, 4], [4, 6], [6, 8]], [[1, 8]]],
     ]
 
     @mark.parametrize("intervals, merged_intervals", data_provider)
-    def test_solution(self, intervals: List[List[int]], merged_intervals: List[List[int]], solution):
+    def test_solution(
+        self, intervals: List[List[int]], merged_intervals: List[List[int]], solution
+    ):
         assert solution.merge_intervals(intervals) == merged_intervals
 
 
