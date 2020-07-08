@@ -12,7 +12,7 @@ class Solution(ABC):
 
 class SolutionPow(Solution):
     def my_pow(self, x: float, n: int) -> float:
-        return pow(x, n)
+        return x ** n
 
 
 class SolutionMath(Solution):
