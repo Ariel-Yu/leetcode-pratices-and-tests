@@ -50,31 +50,13 @@ class SolutionBinaryInteger(Solution):
 class TestSolution:
     @fixture
     def solutions(self) -> List[Solution]:
-        return [
-            SolutionStringLooping(),
-            SolutionBinaryInteger()
-        ]
+        return [SolutionStringLooping(), SolutionBinaryInteger()]
 
     data_provider = [
-        [
-            "1",
-            "11",
-            "100"
-        ],
-        [
-            "100",
-            "0",
-            "100"
-        ],[
-            "11",
-            "11",
-            "110"
-        ],
-        [
-            "100",
-            "100",
-            "1000"
-        ]
+        ["1", "11", "100"],
+        ["100", "0", "100"],
+        ["11", "11", "110"],
+        ["100", "100", "1000"],
     ]
 
     @mark.parametrize("a, b, expected", data_provider)
