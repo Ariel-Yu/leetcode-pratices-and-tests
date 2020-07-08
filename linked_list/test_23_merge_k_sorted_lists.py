@@ -13,7 +13,7 @@ from pytest import fixture
 
 
 class ListNode:
-    def __init__(self, val: int = None, next = None):
+    def __init__(self, val: int = None, next=None):
         self.val = val
         self.next = next
 
@@ -110,21 +110,19 @@ class SolutionListSorting(Solution):
 class TestSolutions:
     @fixture
     def solutions(self) -> List[Solution]:
-        return [
-            SolutionPriorityQueue(),
-            SolutionHeapQ(),
-            SolutionListSorting()
-        ]
+        return [SolutionPriorityQueue(), SolutionHeapQ(), SolutionListSorting()]
 
     def test_merge_k_linked_list(self, solutions):
         lists = [
             self._get_linked_list_with_n_nodes(1, 1, 2),
             self._get_linked_list_with_n_nodes(1, 5),
-            self._get_linked_list_with_n_nodes(6)
+            self._get_linked_list_with_n_nodes(6),
         ]
 
         for solution in solutions:
-            assert solution.merge_k_sorted_lists(lists) == self._get_linked_list_with_n_nodes(1, 1, 1, 2, 5, 6)
+            assert solution.merge_k_sorted_lists(
+                lists
+            ) == self._get_linked_list_with_n_nodes(1, 1, 1, 2, 5, 6)
 
     def test_merge_0_linked_list(self, solutions):
         for solution in solutions:
@@ -134,11 +132,13 @@ class TestSolutions:
         lists = [
             self._get_linked_list_with_n_nodes(1, 1, 2),
             self._get_linked_list_with_n_nodes(),
-            self._get_linked_list_with_n_nodes(6)
+            self._get_linked_list_with_n_nodes(6),
         ]
 
         for solution in solutions:
-            assert solution.merge_k_sorted_lists(lists) == self._get_linked_list_with_n_nodes(1, 1, 2, 6)
+            assert solution.merge_k_sorted_lists(
+                lists
+            ) == self._get_linked_list_with_n_nodes(1, 1, 2, 6)
 
     def _get_linked_list_with_n_nodes(self, *args) -> ListNode:
         values = list(args)
