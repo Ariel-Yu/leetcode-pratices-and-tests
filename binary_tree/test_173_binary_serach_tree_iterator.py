@@ -3,6 +3,9 @@ from typing import List
 
 from pytest import fixture
 
+# 1. Is the tree finite?
+# 2. Is there any restriction of time and space complexity? O(1), O(h)
+
 
 class TreeNode:
     def __init__(self, val: int):
