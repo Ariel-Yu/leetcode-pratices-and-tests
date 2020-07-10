@@ -71,7 +71,7 @@ class TestSolutions:
     def solutions(self) -> List[Solution]:
         return [
             SolutionDFS(self._get_tree()),
-            SolutionControlledRecursion(self._get_tree())
+            SolutionControlledRecursion(self._get_tree()),
         ]
 
     def _get_tree(self) -> TreeNode:
