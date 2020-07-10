@@ -19,12 +19,9 @@ class TreeNode:
 
 class Solution:
     def serialize(self, root: TreeNode) -> str:
-        returned_str = ""
-
         def parse_tree(node: TreeNode, values: str) -> str:
             if not node:
-                values += ",null"
-                return values
+                return values + ",null"
 
             values += f",{node.val}"
             values = parse_tree(node.left, values)
@@ -32,7 +29,7 @@ class Solution:
 
             return values
 
-        return parse_tree(root, returned_str)[1:]
+        return parse_tree(root, "")[1:]
 
     def deserialize(self, data: str) -> TreeNode:
         values = data.split(",")
