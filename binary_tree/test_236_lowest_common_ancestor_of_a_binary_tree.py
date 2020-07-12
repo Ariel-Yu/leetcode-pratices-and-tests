@@ -77,10 +77,7 @@ class SolutionLowestCommonAncestor(Solution):
 class TestSolutions:
     @fixture
     def solutions(self) -> List[Solution]:
-        return [
-            SolutionAllCommonAncestors(),
-            SolutionLowestCommonAncestor()
-        ]
+        return [SolutionAllCommonAncestors(), SolutionLowestCommonAncestor()]
 
     @staticmethod
     def deserialize_tree(values: List[int]) -> TreeNode:
