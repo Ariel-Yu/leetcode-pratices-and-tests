@@ -52,23 +52,12 @@ class SolutionLeftR(Solution):
 class TestSolutions:
     @fixture
     def solutions(self) -> List[Solution]:
-        return [
-            SolutionLeftRight()
-        ]
+        return [SolutionLeftRight()]
 
     data_provider = [
-        [
-            [1,2,3,4],
-            [24,12,8,6]
-        ],
-        [
-            [1,2,0],
-            [0,0,2]
-        ],
-        [
-            [0,0],
-            [0,0]
-        ]
+        [[1, 2, 3, 4], [24, 12, 8, 6]],
+        [[1, 2, 0], [0, 0, 2]],
+        [[0, 0], [0, 0]],
     ]
 
     @mark.parametrize("nums, expected", data_provider)
