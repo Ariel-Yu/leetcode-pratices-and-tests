@@ -155,7 +155,7 @@ class TestSolutions:
 def complexity_analysis_priority_queues():
     print("\nPriorityQueue/HeadQ complexity analysis:")
     print("k linked lists, n total nodes")
-    print("=> Time complexity: O(kn)")  # O(n(k + 1))
+    print("=> Time complexity: O(nk)")  # O(n(k + 1))
     print("* Initialized PriorityQueue/HeadQ: O(k)")
     print("* Fetch the smallest item from PriorityQueue/HeadQ for n times: O(k*n)")
     print("=> Space complexity: O(k)")
