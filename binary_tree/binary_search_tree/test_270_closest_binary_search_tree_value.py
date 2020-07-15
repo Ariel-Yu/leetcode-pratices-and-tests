@@ -42,6 +42,30 @@ class SolutionParseTreeAndCompare(Solution):
         return parse_tree_and_compare(root, target, sd)[1]
 
 
+class SolutionParseTree(Solution):
+    def closest_value(self, root: TreeNode, target: float) -> int:
+        values = []
+
+        def parse_tree(node: TreeNode, values: List[int]):
+            if node.left:
+                parse_tree(node.left, values)
+            values.append(node.val)
+            if node.right:
+                parse_tree(node.right, values)
+
+        distance = None
+        closest = None
+        for value in values:
+            diff = abs(value - target)
+            if distance is None or diff < distance:
+                if value > target:
+                    return value
+                distance = diff
+                closest = value
+
+        return closest
+
+
 class TestSolutions:
     @fixture
     def solutions(self) -> List[Solution]:
