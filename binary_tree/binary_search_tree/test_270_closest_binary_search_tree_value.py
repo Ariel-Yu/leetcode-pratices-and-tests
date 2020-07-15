@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Tuple, List
+from typing import List, Tuple
 
 from pytest import fixture, mark
 
@@ -19,9 +19,11 @@ class Solution(ABC):
 
 class SolutionParseTreeAndCompare(Solution):
     def closest_value(self, root: TreeNode, target: float) -> int:
-        sd = tuple((None, None)) # tuple (distance, value)
+        sd = tuple((None, None))  # tuple (distance, value)
 
-        def parse_tree_and_compare(node: TreeNode, target: float, sd: tuple) -> Tuple[float, int]:
+        def parse_tree_and_compare(
+            node: TreeNode, target: float, sd: tuple
+        ) -> Tuple[float, int]:
             if node.left:
                 sd = parse_tree_and_compare(node.left, target, sd)
                 if sd[1] > target:
@@ -69,9 +71,7 @@ class SolutionParseTree(Solution):
 class TestSolutions:
     @fixture
     def solutions(self) -> List[Solution]:
-        return [
-            SolutionParseTreeAndCompare()
-        ]
+        return [SolutionParseTreeAndCompare()]
 
     @staticmethod
     def get_tree() -> TreeNode:
@@ -93,28 +93,13 @@ class TestSolutions:
         return node4
 
     func = get_tree.__func__
-    data_provider = [
-        [
-            func(),
-            3.75,
-            4
-        ],
-        [
-            func(),
-            2.25,
-            2
-        ],
-        [
-            func(),
-            6.05,
-            6
-        ],
-    ]
+    data_provider = [[func(), 3.75, 4], [func(), 2.25, 2], [func(), 6.05, 6]]
 
     @mark.parametrize("root, target, expected", data_provider)
     def test_closest_value(self, root: TreeNode, target: int, expected: int, solutions):
         for solution in solutions:
             assert solution.closest_value(root, target) == expected
+
 
 # Immutable objects: string, number, tuple => pass by value
 # Mutable objects: list, dictionary => pass by reference
