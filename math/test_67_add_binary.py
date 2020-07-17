@@ -17,29 +17,19 @@ class Solution(ABC):
 
 class SolutionStringLooping(Solution):
     def add_binary(self, a: str, b: str) -> str:
-        binary_string = ""
-        a = a[-1::-1]
-        b = b[-1::-1]
-        longer, shorter = a, b
-        if len(a) < len(b):
-            longer, shorter = b, a
+        carry, res = 0, ""
+        i, j = len(a) - 1, len(b) - 1
+        while i > -1 or j > -1 or carry:
+            if i > -1:
+                carry += int(a[i])
+            if j > -1:
+                carry += int(b[j])
+            res = str(carry % 2) + res
+            carry //= 2
+            i -= 1
+            j -= 1
 
-        carry = 0
-        for i in range(len(longer)):
-            add = carry + int(longer[i])
-            if len(shorter) > i:
-                add += int(shorter[i])
-            if add > 1:
-                carry = 1
-                add -= 2
-            else:
-                carry = 0
-            binary_string = str(add) + binary_string
-
-        if carry:
-            binary_string = str(carry) + binary_string
-
-        return binary_string
+        return res
 
 
 class SolutionBinaryInteger(Solution):
