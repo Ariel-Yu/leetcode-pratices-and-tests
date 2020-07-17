@@ -19,11 +19,7 @@ class Solution:
 
 
 class TestSolution:
-    data_provider = [
-        ["99", "11", "110"],
-        ["999", "11", "1010"],
-        ["0", "0", "0"],
-    ]
+    data_provider = [["99", "11", "110"], ["999", "11", "1010"], ["0", "0", "0"]]
 
     @mark.parametrize("a, b, expected", data_provider)
     def test_add_strings(self, a: str, b: str, expected: str):
