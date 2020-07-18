@@ -1,6 +1,7 @@
 from pytest import mark
 
 # 1. Is there always be a bad version within the given n?
+#    Which means that, can the bad version be 0 or > n
 
 
 class Solution:
@@ -13,34 +14,28 @@ class Solution:
         return False
 
     def first_bad_version(self, n: int) -> int:
-        # Using floor division means that left edge will be hit but right edge will never be hit
-        # ex: (1, 10) -> (5, 10) -> (7, 10) -> (8, 10) -> (9, 10) -> (9, 10) ...
-        version = (n + 1) // 2
         left = 1
-        right = n
-        bad = None
-        pre = None
-        while pre != version:
-            if self._is_bad_api(version):
-                right = version
-                bad = version
+        right = n + 1
+        res = None
+        while left < right:
+            mid = (left + right) // 2
+            if self._is_bad_api(mid):
+                right = mid
+                res = mid
             else:
-                left = version
-            pre = version
-            version = (left + right) // 2
+                left = mid + 1
 
-        # If there might NOT be a bad version, the below check will be different
-        if not bad:
-            if left > 0:
-                return n
-
-        return bad
+        if res is None:
+            return n
+        return res
 
 
 class TestSolution:
     data_provider = [
         [5, 1, 1],
         [5, 5, 5],
+        [5, 0, 1],
+        [5, 6, 5],
         [1, 1, 1],
         [2126753390, 1702766719, 1702766719],
     ]
