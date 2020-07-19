@@ -18,7 +18,6 @@ class Solution1(Solution):
     def is_palindrome(self, s: str) -> bool:
         s = list(s)
         s = [x.lower() for x in s if x.isdigit() or x.isalpha()]
-        s = "".join(s)
 
         return s == s[::-1]
 
