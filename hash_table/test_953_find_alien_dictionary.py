@@ -8,7 +8,9 @@ class Solution:
         map_order = {x: i for i, x in enumerate(list(order))}
 
         for i in range(1, len(words)):
-            if words[i - 1][:len(words[i])] == words[i] and len(words[i - 1]) > len(words[i]):
+            if words[i - 1][: len(words[i])] == words[i] and len(words[i - 1]) > len(
+                words[i]
+            ):
                 return False
             for k in range(len(words[i])):
                 if k < len(words[i - 1]):
@@ -22,26 +24,10 @@ class Solution:
 
 class TestSolution:
     data_provider = [
-        [
-            ["hello", "leetcode"],
-            "hlabcdefgijkmnopqrstuvwxyz",
-            True,
-        ],
-        [
-            ["word","world","row"],
-            "worldabcefghijkmnpqstuvxyz",
-            False,
-        ],
-        [
-            ["apple","app"],
-            "abcdefghijklmnopqrstuvwxyz",
-            False,
-        ],
-        [
-            ["apap","app"],
-            "abcdefghijklmnopqrstuvwxyz",
-            True,
-        ],
+        [["hello", "leetcode"], "hlabcdefgijkmnopqrstuvwxyz", True],
+        [["word", "world", "row"], "worldabcefghijkmnpqstuvxyz", False],
+        [["apple", "app"], "abcdefghijklmnopqrstuvwxyz", False],
+        [["apap", "app"], "abcdefghijklmnopqrstuvwxyz", True],
     ]
 
     @mark.parametrize("words, order, expected", data_provider)
