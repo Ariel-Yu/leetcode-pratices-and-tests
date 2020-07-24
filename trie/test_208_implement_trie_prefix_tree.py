@@ -40,7 +40,7 @@ class Solution:
 
 
 class TestSolution:
-    def test(self):
+    def test_solution(self):
         solution = Solution()
         solution.insert("apple")
         assert solution.search("apple")
