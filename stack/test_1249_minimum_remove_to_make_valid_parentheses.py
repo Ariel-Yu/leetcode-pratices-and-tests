@@ -16,25 +16,16 @@ class Solution:
         remove.extend(stack)
 
         for j in range(len(remove)):
-            s = s[:remove[j] - j] + s[remove[j] - j + 1:]
+            s = s[: remove[j] - j] + s[remove[j] - j + 1 :]
 
         return s
 
 
 class TestSolution:
     data_provider = [
-        [
-            "((a)))",
-            "((a))"
-        ],
-        [
-            "))((",
-            ""
-        ],
-        [
-            "(()a(()",
-            "()a()"
-        ],
+        ["((a)))", "((a))"],
+        ["))((", ""],
+        ["(()a(()", "()a()"],
     ]
 
     @mark.parametrize("s, expected", data_provider)
