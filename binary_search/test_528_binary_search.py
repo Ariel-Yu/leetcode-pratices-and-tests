@@ -5,26 +5,22 @@ from pytest import mark
 
 class Solution:
     def binary_search_exact(self, values: List[int], target: int) -> int:
-        # The initial value of right is the length of the values
-        # Since we're using floor division, the initial value of right will never be reached
-        left, right = 0, len(values)
-        while left < right:
+        left, right = 0, len(values) - 1
+        while left <= right:
             index = (left + right) // 2
             if values[index] < target:
-                left = (
-                    index + 1
-                )  # To avoid staling index on the right since we're using floor division for index
+                left = index + 1
             elif values[index] > target:
-                right = index
+                right = index - 1
             else:
                 return index
 
         return False
 
     def binary_search_approx(self, values: List[int], target: float) -> int:
-        left, right = 0, len(values)
+        left, right = 0, len(values) - 1
         diff, res = None, None
-        while left < right:
+        while left <= right:
             index = (left + right) // 2
             index_diff = abs(target - values[index])
             if diff is None or index_diff < diff:
@@ -33,7 +29,7 @@ class Solution:
             if values[index] < target:
                 left = index + 1
             elif values[index] > target:
-                right = index
+                right = index - 1
 
         return res
 
