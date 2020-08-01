@@ -44,10 +44,7 @@ class Solution:
                 total[0] += nested_integer.get_integer() * depth
             else:
                 for value in nested_integer.get_list():
-                    if value.is_integer():
-                        total[0] += value.get_integer() * (depth + 1)
-                    else:
-                        parse_nested_integer(value, depth + 1, total)
+                    parse_nested_integer(value, depth + 1, total)
 
         total = [0]
         for nested_integer in nested_list:
