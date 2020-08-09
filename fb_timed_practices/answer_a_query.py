@@ -7,6 +7,7 @@ from pytest import mark, fixture
 # Q1: Since the index will be <N, is the number N always False and won't be set True:
 # Q2: Can the index be 0 which is not included in the array (1-based)?
 
+
 class Solution(ABC):
     @abstractmethod
     def answer_queries(self, queries: List[List[int]], n: int) -> List[int]:
@@ -50,9 +51,7 @@ class Solution2(Solution):
 class TestSolution:
     @fixture
     def solutions(self) -> List[Solution]:
-        return [
-            Solution1()
-        ]
+        return [Solution1(), Solution2]
 
     data_provider = [
         [
@@ -70,6 +69,8 @@ class TestSolution:
     ]
 
     @mark.parametrize("queries, n, expected", data_provider)
-    def test_answer_queries(self, queries: List[List[int]], n: int, expected: List[int]):
+    def test_answer_queries(
+        self, queries: List[List[int]], n: int, expected: List[int]
+    ):
         solution = Solution1()
         assert solution.answer_queries(queries, n) == expected
