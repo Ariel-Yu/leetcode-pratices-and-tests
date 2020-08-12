@@ -10,7 +10,7 @@ class Solution:
             for j in range(i, len(a)):  # O(N)
                 sub = a[i : j + 1]  # O(N)
                 sub_avg = sum(sub) / len(sub)
-                r = a[:i] + a[j + 1:]  # O(N)
+                r = a[:i] + a[j + 1 :]  # O(N)
                 if not r:
                     r_avg = 0
                 else:
